@@ -40,3 +40,15 @@ use
    msg.send(data, to_addr)
 
    recv_data = msg.recv()
+
+or
+
+.. code-block:: python
+
+   from pysms.message import Message
+
+   data = b"Hello"
+   to_addr = ("127.0.0.1", 8899)
+
+   with Message(8899) as msg
+       msg.send(data, to_addr)

@@ -35,6 +35,16 @@ class Message:
         self.server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.server.bind((self.host, self.port))
 
+    def __del__(self):
+        self.server.close()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, type, msg, traceback):
+        return True
+        #self.server.close()
+
     def recv(self):
         data, addr = self.server.recvfrom(512)
         if (data):

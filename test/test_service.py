@@ -9,12 +9,15 @@ from pysms.message import Message, AppData
 
 if __name__ == "__main__":
 
-    msg = Message(8899)
-    app_data =  AppData()
-    data = {'name':'cnsworder',
-            'type' : 'cmd'   }
+    with Message(8899) as msg:
+        msg.send(b"dd", ("127.0.0.1", 9988))
 
-    while (True):
-        send_data = "cmd:log\ninfo:mylog\n\n"#data.dump(data)
+    #msg = Message(8899)
+    #app_data =  AppData()
+    #data = {'name':'cnsworder',
+    #        'type' : 'cmd'   }
+
+    #while (True):
+    #    send_data = "cmd:log\ninfo:mylog\n\n"#data.dump(data)
         #s = app_data.load(send_data)
-        msg.send(send_data, ("127.0.0.1", 9988))
+    #    msg.send(send_data, ("127.0.0.1", 9988))
