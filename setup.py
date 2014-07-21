@@ -7,8 +7,9 @@ setup(
     name = "pysms",
     version = "0.1",
     description = "simple single message base of udp",
+    long_description = open('README.rst').read()
     author = "cnsworder",
     author_email = "cnsworder@gmail.com",
     packages = ["pysms"],
-    install_requires = ['pyyaml']
+    install_requires = ['pyyaml'],
 )
